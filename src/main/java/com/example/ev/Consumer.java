@@ -2,13 +2,16 @@ package com.example.ev;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
 import org.jboss.ejb3.annotation.ResourceAdapter;
 
 
 import javax.ejb.ActivationConfigProperty;
+import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
+import javax.ejb.Stateful;
+import javax.faces.bean.ApplicationScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
@@ -26,6 +29,9 @@ import java.util.List;
 @ResourceAdapter("activemq.rar")
 public class Consumer implements MessageListener {
 
+    @Inject
+    EventListBean eventListBean;
+
     @Override
     public void onMessage(Message message) {
 
@@ -35,11 +41,11 @@ public class Consumer implements MessageListener {
             System.out.println(textMessage.getText());
             Type collectionType = new TypeToken<List<Event>>(){}.getType();
             List<Event> eventList = (List<Event>) gson.fromJson(textMessage.getText(),collectionType);
-            for (Event event:eventList) {
-                System.out.println(event.getDateString());
-            }
+            eventListBean.setEventList(eventList);
+
         } catch (JMSException e) {
             e.printStackTrace();
         }
     }
+
 }

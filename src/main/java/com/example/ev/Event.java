@@ -1,5 +1,8 @@
 package com.example.ev;
 
+import javax.faces.bean.ManagedBean;
+
+@ManagedBean
 public class Event {
 
 private String patientName;
@@ -7,6 +10,7 @@ private String patientName;
 private String appointmentValue;
 
 private String dateString;
+
 
     public String getPatientName() {
         return patientName;
