@@ -1,5 +1,4 @@
-package com.example.ev;
-
+package com.example.demo;
 import javax.ejb.Singleton;
 import javax.ejb.Stateful;
 import javax.faces.bean.ManagedBean;

@@ -1,15 +1,15 @@
-package com.example.ev;
+package com.example.demo;
 
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean
 public class Event {
 
-private String patientName;
+    private String patientName;
 
-private String appointmentValue;
+    private String appointmentValue;
 
-private String dateString;
+    private String dateString;
 
 
     public String getPatientName() {

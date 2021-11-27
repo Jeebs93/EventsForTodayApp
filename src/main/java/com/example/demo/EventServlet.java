@@ -1,15 +1,13 @@
-package com.example.ev;
+package com.example.demo;
 
+import java.io.*;
 import javax.inject.Inject;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 
-@WebServlet(name="eventServlet", value="/events")
+@WebServlet(value="/events")
 public class EventServlet extends HttpServlet {
 
     @Inject

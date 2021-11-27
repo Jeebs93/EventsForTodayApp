@@ -1,4 +1,4 @@
-package com.example.ev;
+package com.example.demo;
 
 import org.jboss.ejb3.annotation.ResourceAdapter;
 
